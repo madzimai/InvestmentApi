@@ -19,9 +19,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Run tests
+    - name: Run Gradle tests
       run: ./gradlew test
 
     - name: Build Docker image
       run: |
-        docker build . -t my-image-name:latest -t my-image-name:${{ github.sha }}
+        docker build -t investment-api:latest -t investment-api:${{ github.sha }} .
